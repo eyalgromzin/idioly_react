@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { render } from '@testing-library/react';
 import React, { Component } from 'react';
+// import MainLayout from './pages/mainLayout';
+import MainLayout from 'layouts/mainLayout';
 
 class App extends React.Component{
   constructor(props){
@@ -22,9 +24,13 @@ class App extends React.Component{
 
   render(){
     return (
-      <div className="App">
-        {this.state.apiResponse}
-      </div>
+      <>
+        <MainLayout />
+
+        <div className="App">
+          api test... {this.state.apiResponse}
+        </div>
+      </>
     );
   }
 }

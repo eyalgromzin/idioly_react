@@ -1,22 +1,39 @@
-- main page
-    - texts
-    - practice    
-
 - texts page     
+    - add mongoose 
     - load texts - by language , level and type  
     - show texts
-    - on text click - open text page. dont show text and list together. 
-- text page 
-    - load text 
-    - show text     
-- login - to load all the words
-- add word dialog
-- practice 
+    - enable change filter and load texts by filter 
+    - on text click - open text page. - dont show text and list together.  its ugly , in web browser they have back button
 
+- text page         
+    - load text 
+    - show text 
+    - add azure cognitive translate to project
+
+- add word dialog
+    - enable click on word - show add word dialog  - without the option to add the word
+    
+- login dialog - to load all the words
+
+text page -     
+    - create userWords table 
+    - after login - on add , add word to user words table.
+
+- practice 
+    - just multiple choice. 
+        - 1 translation , many words
+        - 1 word , many translations
 
 - add text page
+    - UI
+    - check text exists in url
+
 - make everything super pretty
+
 - bookmarks
+    - create user bookmarks to db
+    - save bookmark to db on word click
+    - load bookmark from db on text click. and show bookmark and scroll to word.
 
 
 - try to work with react-context instead of redux for a while - see how it goes. 

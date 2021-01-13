@@ -1,5 +1,6 @@
-export default textsPage = function(props){
+export default function(props){
     return <div id="textsPage">
+        text layout
         <div id="textsFilterBar">
             <select name="language" id="textsLanguageDropDOwn">
                 <option value="English">English</option>
