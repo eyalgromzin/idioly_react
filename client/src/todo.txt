@@ -1,0 +1,24 @@
+- main page
+    - texts
+    - practice    
+
+- texts page     
+    - load texts - by language , level and type  
+    - show texts
+    - on text click - open text page. dont show text and list together. 
+- text page 
+    - load text 
+    - show text     
+- login - to load all the words
+- add word dialog
+- practice 
+
+
+- add text page
+- make everything super pretty
+- bookmarks
+
+
+- try to work with react-context instead of redux for a while - see how it goes. 
+
+
