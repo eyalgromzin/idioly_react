@@ -2,6 +2,7 @@ import TextsLayout from 'layouts/textsLayout'
 import PracticeLayout from 'layouts/practiceLayout'
 import HomeLayout from 'layouts/homeLayout'
 import WordsLayout from 'layouts/wordsLayout'
+import TextLayout from 'layouts/textLayout'
 import {
     BrowserRouter as Router,
     Switch,
@@ -13,13 +14,16 @@ const mainLayout = function(props){
         <Router>
             <div id="top bar">top bar Idioly</div>
             <br />
-            <div id="buttons layout">     
+            <div id="buttons_layout">     
                 <li><Link to="/">home </Link></li>
                 <li><Link to="/texts">texts </Link></li>
                 <li><Link to="/practice">practice </Link></li>
                 <li><Link to="/words">words</Link></li>
-
-                <Switch>
+            </div>
+            <Switch>
+                    <Route path="/text" >
+                        <TextLayout />
+                    </Route>
                     <Route path="/texts" >
                         <TextsLayout />
                     </Route>
@@ -33,7 +37,6 @@ const mainLayout = function(props){
                         <HomeLayout />
                     </Route>
                 </Switch>
-            </div>
         </Router>
     </div>
 }

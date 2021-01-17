@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const readingTextSchema = new Schema({
+    _id: {
+        type: String,
+        required: true,
+        default: "",
+    },
     title: {
         type: String,
         required: true,

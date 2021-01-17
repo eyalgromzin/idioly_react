@@ -1,13 +1,6 @@
-- texts page     
-    - show texts - first load - whatever is first 
-    - load texts - by language , level and type      
-    - enable change filter and load texts by filter 
-    - on text click - open text page. - dont show text and list together.  its ugly , in web browser they have back button
-
 - text page         
-    - load text 
-    - show text 
-    - add azure cognitive translate to project
+    - word click will open dialog
+    - add azure cognitive translate to project - and translate word on component did mount
 
 - add word dialog
     - enable click on word - show add word dialog  - without the option to add the word

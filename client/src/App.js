@@ -19,18 +19,12 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    this.callAPI()
+    // this.callAPI()
   }
 
   render(){
     return (
-      <>
-        <MainLayout />
-
-        <div className="App">
-          api test... {this.state.apiResponse}
-        </div>
-      </>
+      <MainLayout />        
     );
   }
 }
