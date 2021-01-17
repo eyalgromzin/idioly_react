@@ -7,3 +7,22 @@
 #wordDialogButton{
     margin-top: 10px;
 }
+
+.textWord{
+    display: inline-block
+}
+
+.wordTranslation{
+    font-size: 12px;
+}
+
+.wordWord{
+    font-size: 20px;
+}
+
+.wordPlusImage{
+    height: 8px;
+    width: 8px;
+    margin-left: 3px;
+    cursor: pointer;
+}

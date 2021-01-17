@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import React, { useState, useEffect, useRef } from 'react';
 import WordDialog from 'components/wordDialog'
-
+import TranslatableWord from 'components/translatableWord'
 
 export default function(props){
     const location = useLocation();
@@ -55,7 +55,7 @@ export default function(props){
 
     return <div id="textContent">        
         {
-            textWords.map( word => <span onClick={(e) => wordClickEvent(e, this)}>{word} </span> )
+            textWords.map( word => <TranslatableWord word={word} /> )
         }
         <WordDialog ref={wordDialogRef} buttonClicked={(word, translation) => addWordDialogButtonClicked(word, translation)} />
     </div>

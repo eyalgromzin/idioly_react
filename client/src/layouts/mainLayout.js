@@ -8,11 +8,12 @@ import {
     Switch,
     Route,
     Link } from 'react-router-dom';
+import './layouts.css'
 
 const mainLayout = function(props){
     return <div id="mainLayout">
         <Router>
-            <div id="top bar">top bar Idioly</div>
+            <div id="topBar"><img src={require()} /> Idioly</div>
             <br />
             <div id="buttons_layout">     
                 <li><Link to="/">home </Link></li>
