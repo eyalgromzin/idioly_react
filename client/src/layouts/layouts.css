@@ -1,4 +1,24 @@
 
 #topBar{
-    margin-left: 10px;
+    text-align: center;
 }
+
+#topBarLogoImage{
+    height: 30px;
+    width: 30px;
+}
+
+#topBarIdioly{
+    vertical-align: top;
+    font-size: 27px;
+}
+
+.topBarButton{
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#buttons_layout{
+    text-align: center;
+}
+

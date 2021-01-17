@@ -13,14 +13,18 @@ import './layouts.css'
 const mainLayout = function(props){
     return <div id="mainLayout">
         <Router>
-            <div id="topBar"><img src={require()} /> Idioly</div>
-            <br />
-            <div id="buttons_layout">     
-                <li><Link to="/">home </Link></li>
-                <li><Link to="/texts">texts </Link></li>
-                <li><Link to="/practice">practice </Link></li>
-                <li><Link to="/words">words</Link></li>
+            <div id="topBar">
+                <img id="topBarLogoImage" src={require("images/logo.png").default} /> 
+                <span id="topBarIdioly">Idioly</span>
+                
             </div>
+            <div id="buttons_layout">     
+                <li class="topBarButton"><Link to="/texts">texts </Link></li>
+                <li class="topBarButton"><Link to="/practice">practice </Link></li>
+                <li class="topBarButton"><Link to="/words">words</Link></li>
+            </div>
+            <br />
+            
             <Switch>
                     <Route path="/text" >
                         <TextLayout />

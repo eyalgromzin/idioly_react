@@ -1,5 +1,3 @@
-- enable translating only 10 words - and then ask for login
-
 - login dialog - to load all the words
 
 - if user clicks the word plus button before login, it will show login dialog
@@ -30,7 +28,7 @@
 
 
 
-
+texts - split text by " ", "\n", and more...
 
 - practice 
     - multiple choice. 

@@ -15,43 +15,11 @@ export default function(props){
         setTextWords(location.state.readingText.text.split(" "))
     }, [])
 
-    const selectWord = function(wordTag){
-        //...
-        var x = 4
-        x += 2
-    }
-
     const addWordDialogButtonClicked = (word, translation) => {
         alert(word + " " + translation)
     }
 
-    const closeWordDialog = (word) => {
-        wordDialogRef.current.imperatoveHandleOpen("Add word")
-    }
-
-    const trimRight = function(str, charlist) {
-        if (charlist === undefined)
-          charlist = "\s";
-      
-        return str.replace(new RegExp("[" + charlist + "]+$"), "");
-      };
-
-    const trimLeft = function(str, charlist) {
-        if (charlist === undefined)
-          charlist = "\s";
-      
-        return str.replace(new RegExp("^[" + charlist + "]+"), "");
-      };
-
-    const wordClickEvent = function(e, wordTag){
-        e.target.style.backgroundColor = 'yellow';
-        var word = e.target.textContent.trim();
-        var charlist = "\, \.";       
-        word = trimRight(word,charlist)
-        word = trimLeft(word,charlist)
-        wordDialogRef.current.imperatoveHandleOpen("Add word", word)    //open word dialog
-        selectWord(wordTag)       
-    }
+    
 
     return <div id="textContent">        
         {
