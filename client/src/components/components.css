@@ -1,0 +1,9 @@
+
+#wordDialogFields{
+    display: flex;
+    flex-direction: column;
+}
+
+#wordDialogButton{
+    margin-top: 10px;
+}

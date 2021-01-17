@@ -1,20 +1,70 @@
-- text page         
-    - word click will open dialog
-    - add azure cognitive translate to project - and translate word on component did mount
+- put the translated word above the regular one in different color :)
 
-- add word dialog
-    - enable click on word - show add word dialog  - without the option to add the word
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- enable translating only 10 words - and then ask for login
+
 - login dialog - to load all the words
 
 text page -     
-    - create userWords table 
-    - after login - on add , add word to user words table.
+    - after login - on add, add word to user words table. - table that stores all user words 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - practice 
-    - just multiple choice. 
+    - multiple choice. 
         - 1 translation , many words
         - 1 word , many translations
+    - missing letters also
 
 - add text page
     - UI
