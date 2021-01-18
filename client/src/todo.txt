@@ -1,8 +1,6 @@
-- login dialog - to load all the words
+- to add word , user needs to be logged in
 
-- if user clicks the word plus button before login, it will show login dialog
-
-- after login - it will add word to user words table , and show V sign. 
+- after login - it will add word to user words table, and show V sign instead of plus. 
 
 
 
@@ -65,6 +63,33 @@ texts - split text by " ", "\n", and more...
 - add text page
     - UI
     - check text exists in url
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - make everything super pretty
 

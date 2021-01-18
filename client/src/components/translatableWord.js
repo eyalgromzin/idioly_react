@@ -3,6 +3,8 @@ import { translateWord } from 'translateActions'
 import './components.css'
 import {getTodaysDateString, MAX_TRANSLATIONS_TILL_LOGIN, isLoggedIn} from 'common'
 import {trimLeft, trimRight} from 'common'
+import {showLogInScreen} from 'actions/commonActions'
+import { useSelector } from 'react-redux'
 
 export default function TranslatableWord (props){
     const TRANSLATED_WORDS_COUNT_TODAY_KEY = "TRANSLATED_WORDS_COUNT_TODAY_KEY"
@@ -10,9 +12,13 @@ export default function TranslatableWord (props){
     const [isTranslated, setIsTranslated] = useState(false)
     const [translation, setTranslation] = useState("")
 
+    const isLoggedIn = useSelector(state => {
+        return state.commonReducer.loggedInWith != "NONE"
+    })
+
     var translateClickedWord = (word) => {
         var numOfTranslatedWordsToday = getTodaysNumOfTranslatedWordFromLocalStorage()
-        if(numOfTranslatedWordsToday < MAX_TRANSLATIONS_TILL_LOGIN){
+        if(isLoggedIn || numOfTranslatedWordsToday < MAX_TRANSLATIONS_TILL_LOGIN){
             translateWord(props.word, "es", "en", (translation) => {
                 if(!isTranslated){  
                     setIsTranslated(true)
@@ -23,7 +29,7 @@ export default function TranslatableWord (props){
                 alert(error)
             })
         }else{
-            props.showLogin()
+            showLogInScreen()
         }
     }
 

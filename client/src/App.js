@@ -4,6 +4,8 @@ import { render } from '@testing-library/react';
 import React, { Component } from 'react';
 // import MainLayout from './pages/mainLayout';
 import MainLayout from 'layouts/mainLayout';
+import store from 'store'
+import { Provider } from 'react-redux';
 
 class App extends React.Component{
   constructor(props){
@@ -24,7 +26,9 @@ class App extends React.Component{
 
   render(){
     return (
-      <MainLayout />        
+      <Provider store={store}>
+        <MainLayout />        
+      </Provider>
     );
   }
 }

@@ -3,10 +3,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import WordDialog from 'components/wordDialog'
 import TranslatableWord from 'components/translatableWord'
 
+
 export default function(props){
     const location = useLocation();
     const [textWords, setTextWords] = useState([])
-    const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+    
     
     // const wordDialogRef = useRef();
     const wordDialogRef = React.createRef();

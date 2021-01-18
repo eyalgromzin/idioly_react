@@ -22,3 +22,11 @@
     text-align: center;
 }
 
+#mainContentContainer{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#textsList{
+    margin-top: 5px;
+}

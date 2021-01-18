@@ -56,7 +56,6 @@ export default function(props){
     }
 
     return <div id="textsPage">
-        text layout
         {error}
         <div id="textsFilterBar">            
             <select name="textLevel" id="textsLevelDropDOwn" onChange={onLevelChange}>
@@ -74,10 +73,10 @@ export default function(props){
                 <option value="lyrics">lyrics</option>            
             </select>
         </div>
-
-        text list: 
+        <div id="textsList">
         {           
             readingTexts.map(readingText => <div key={readingText.title} onClick={() => openText(readingText)}> {readingText.title}  </div>)
         }
+        </div>
     </div>
 }
