@@ -1,5 +1,4 @@
-- to add word , user needs to be logged in
-
+- add word button - add it to userWords table
 - after login - it will add word to user words table, and show V sign instead of plus. 
 
 

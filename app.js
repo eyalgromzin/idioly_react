@@ -17,11 +17,13 @@ const mongoose = require('mongoose');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testapi');  //works only when you type it in url with small letters
 var textsRouter = require('./routes/texts');  
+var userWordsRouter = require('./routes/userWords');  
 var textLikesDislikesRouter = require('./routes/textLikesDislikes');  
 
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/texts', textsRouter);
+app.use('/userWords', userWordsRouter);
 app.use('/textLikesDislikes', textLikesDislikesRouter);
 
 // view engine setup
