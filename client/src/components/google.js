@@ -4,12 +4,17 @@ import './socialButtons.css'
 import { connect } from 'react-redux';
 import { 
     CHANGE_LOGGED_IN_STATE,
-    SET_CURRENT_PAGE,
     CHANGE_LOGGED_IN_TYPE,
+    SET_LOGGED_IN_USER_ID,
+    SET_LOGGED_IN_USER_FIRST_NAME,
+    SET_LOGGED_IN_USER_LAST_NAME,
+    SET_LOGGED_IN_USER_EMAIL,
+    SET_LOGGED_IN_USER_WORDS,
 } from 'reducers/types'
 import store from 'store'
 import { loadOrCreateUserIfNotExists } from 'actions/userActions.js'
 import { useHistory } from "react-router-dom";
+import { getUserWordsFromDB } from 'actions/userWordsActions';
 
 class GoogleButton extends Component {
 
@@ -20,10 +25,20 @@ class GoogleButton extends Component {
         console.log(response);
         this.props.dispatch({type: CHANGE_LOGGED_IN_TYPE, payload: "Google"});
         this.props.dispatch({ type: CHANGE_LOGGED_IN_STATE, payload: true });
+        this.props.dispatch({ type: SET_LOGGED_IN_USER_ID, payload: response.googleId });
+        this.props.dispatch({ type: SET_LOGGED_IN_USER_FIRST_NAME, payload: response.Nt.EW });
+        this.props.dispatch({ type: SET_LOGGED_IN_USER_LAST_NAME, payload: response.Nt.IU });
+        this.props.dispatch({ type: SET_LOGGED_IN_USER_EMAIL, payload: response.Nt.uu });
 
         if(this.props.pageAfterLogin !== undefined && this.props.pageAfterLogin != ''){
             this.context.history.push("/" + this.props.pageAfterLogin)            
         }
+
+        getUserWordsFromDB(response.googleId, res => {
+            this.props.dispatch({ type: SET_LOGGED_IN_USER_WORDS, payload: res.data });
+        }, error => {
+            alert(error)
+        })
     }
 
     onFailGoogleLogin = (response) => {

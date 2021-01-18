@@ -1,5 +1,5 @@
 - add word button - add it to userWords table
-- after login - it will add word to user words table, and show V sign instead of plus. 
+    - if user is logged in, and word exists in user words , dont add word to db
 
 
 

@@ -30,7 +30,7 @@ export default function MainLayout(){
                 <div id="buttons_layout">     
                     <li class="topBarButton"><Link to="/texts">texts </Link></li>
                     <li class="topBarButton"><Link to="/practice">practice </Link></li>
-                    <li class="topBarButton"><Link to="/words">words</Link></li>
+                    {/* <li class="topBarButton"><Link to="/words">words</Link></li> */}
                 </div>
                 <br />
                 

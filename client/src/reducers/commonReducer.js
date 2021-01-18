@@ -5,16 +5,20 @@ import {
     SET_LOGGED_IN_USER_LAST_NAME,
     SET_LOGGED_IN_USER_EMAIL,
     CHANGE_LOGGED_IN_TYPE,
+    SET_LOGGED_IN_USER_WORDS,
    } from 'reducers/types'
   
   const initialState = {
+    fromLanguage: 'es',
+    toLanguage: 'en',
     isShowLogin: false,
     loggedInUserID: '',
 	loggedInUserFirstName: '',
 	loggedInUserLastName: '',
     email: '',
     pageAfterLogin: '', 
-    loggedInWith: "NONE"
+    loggedInWith: "NONE",
+    userWords: []
   };
     
   
@@ -44,7 +48,13 @@ import {
 			return {
 				...state,
 				email: action.payload
+            };        
+        case SET_LOGGED_IN_USER_WORDS:
+			return {
+				...state,
+				userWords: action.payload
             };
+        
         case CHANGE_LOGGED_IN_TYPE:
 			return {
 				...state,

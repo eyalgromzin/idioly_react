@@ -10,9 +10,12 @@ export function getTodaysDateString(){
     return dateToday
 }
 
-export const MAX_TRANSLATIONS_TILL_LOGIN = 10
+export const MAX_TRANSLATIONS_TILL_LOGIN = 10000
 
 export var isLoggedIn = false
+
+export var fromLanguage = "es"
+export var toLanguage = "en"
 
 export const trimRight = function(str, charlist) {
     if (charlist === undefined)

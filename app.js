@@ -1,8 +1,11 @@
 // var createError = require('http-errors');
 var cors = require('cors');
 var express = require('express');
+var bodyParser = require('body-parser')
 
 var app = express();
+
+app.use(bodyParser.json())
 
 app.use(cors())
 
@@ -23,7 +26,7 @@ var textLikesDislikesRouter = require('./routes/textLikesDislikes');
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/texts', textsRouter);
-app.use('/userWords', userWordsRouter);
+app.use('/userwords', userWordsRouter);
 app.use('/textLikesDislikes', textLikesDislikesRouter);
 
 // view engine setup
@@ -65,7 +68,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  // res.render('error');
+  res.json({
+    message: err.message,
+    error: err
+  });
 });
 
 module.exports = app;

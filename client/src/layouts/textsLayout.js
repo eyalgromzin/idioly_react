@@ -1,4 +1,5 @@
-import { getTexts, getTextsByCriterias } from 'dbActions'
+import { getTextsByCriterias } from 'dbActions'
+import {getTexts} from 'actions/textsActions'
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 

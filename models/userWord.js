@@ -1,7 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userWordSchema = new Schema({
+const UserWordSchema = new Schema({
+    userID:{
+      type: String,
+      required: true,
+    },
+    fromLanguage: {
+      type: String,
+      required: true,
+    },
+    toLanguage: {
+      type: String,
+      required: true,
+    },
     word: {
       type: String,
       required: true,
@@ -16,4 +28,4 @@ const userWordSchema = new Schema({
       }   
 });
 
-module.exports = User = mongoose.model('user', userWordSchema, 'users');
+module.exports = UserWord = mongoose.model('userWord', UserWordSchema, "userWords");
