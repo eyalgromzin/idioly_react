@@ -1,5 +1,3 @@
-- add word button - add it to userWords table
-    - if user is logged in, and word exists in user words , dont add word to db
 
 
 
@@ -24,8 +22,6 @@
 
 
 
-
-texts - split text by " ", "\n", and more...
 
 - practice 
     - multiple choice. 
@@ -33,45 +29,7 @@ texts - split text by " ", "\n", and more...
         - 1 word , many translations
     - missing letters also
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- add text page
-    - UI
-    - check text exists in url
-
-
-
-
-
-
-
-
-
-
+texts - split text by " ", "\n", and more...
 
 
 

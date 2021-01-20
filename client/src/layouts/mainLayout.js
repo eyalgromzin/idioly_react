@@ -3,6 +3,7 @@ import PracticeLayout from 'layouts/practiceLayout'
 import HomeLayout from 'layouts/homeLayout'
 import WordsLayout from 'layouts/wordsLayout'
 import TextLayout from 'layouts/textLayout'
+import AddText from 'layouts/addTextLayout'
 import LoginScreen from 'layouts/loginScreen'
 import {
     BrowserRouter as Router,
@@ -28,9 +29,9 @@ export default function MainLayout(){
                     
                 </div>
                 <div id="buttons_layout">     
-                    <li class="topBarButton"><Link to="/texts">texts </Link></li>
-                    <li class="topBarButton"><Link to="/practice">practice </Link></li>
-                    {/* <li class="topBarButton"><Link to="/words">words</Link></li> */}
+                    <li className="topBarButton"><Link to="/texts">texts </Link></li>
+                    <li className="topBarButton"><Link to="/practice">practice </Link></li>
+                    {/* <li className="topBarButton"><Link to="/words">words</Link></li> */}
                 </div>
                 <br />
                 
@@ -38,6 +39,9 @@ export default function MainLayout(){
                     <Switch>
                         <Route path="/text" >
                             <TextLayout />
+                        </Route>
+                        <Route path="/addtext" >
+                            <AddText />
                         </Route>
                         <Route path="/texts" >
                             <TextsLayout />

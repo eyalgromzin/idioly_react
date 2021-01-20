@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Create Schema
-const readingTextSchema = new Schema({
-    _id: {
+const readingTextSchema = new Schema({   
+    language: {
         type: String,
         required: true,
         default: "",
@@ -23,6 +23,11 @@ const readingTextSchema = new Schema({
         required: true,
         default: "",
     },    
+    source: {
+        type: String,
+        required: true,
+        default: "",
+    },    
     level: {
         type: String,
         required: true,
@@ -37,12 +42,7 @@ const readingTextSchema = new Schema({
         type: String,
         required: false,
         default: "",
-    },
-    language: {
-        type: String,
-        required: true,
-        default: "",
-    },
+    },    
     wordCount: {
         type: Number,
         required: true,
@@ -50,18 +50,22 @@ const readingTextSchema = new Schema({
     },
     likesCount: {
         type: Number,
-        required: true,
+        required: false,
         default: 0,
     },
     dislikesCount: {
         type: Number,
-        required: true,
+        required: false,
         default: 0,
     },
     createdOn: {
         type: Number,
-        required: true,
-        default: 0,
+        required: false,
+        default: Date.now(),
+    },
+    createdBy: {
+        type: String,
+        required: true
     }
   });
   

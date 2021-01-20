@@ -1,6 +1,8 @@
 var express = require("express")
 var router = express.Router()
 
+const fetch = require('node-fetch');
+
 // readingText  Model
 const readingText = require('../models/readingText');
 
@@ -35,6 +37,49 @@ router.get('/criterias/:language/:level/:type', (req, res) => {
   readingText.find(query).then((items) => { 
     res.send(items)
   })
+})
+
+router.post('/getHtml', (req, res) => {
+  if(typeof req.body.url !== undefined){
+    fetch(req.body.url)
+      .then(res => res.text())
+      .then(text => res.send(text))
+  }
+  
+})
+
+// @route   POST texts/create/
+// @desc    create text
+router.post('/create', (req, res) => {
+  console.log("in texts/create/")
+
+  //without body parse -  req.body is undefined :/
+  const newText = new readingText({
+    language: req.body.language,
+    title: req.body.title,
+    author: req.body.author,
+    text: req.body.text,
+    source: req.body.source,
+    level: req.body.level,
+    type: req.body.type,
+    youtubeLink: req.body.youtubeLink,
+    wordCount: req.body.wordCount,
+    createdOn: req.body.createdOn,
+    createdBy: req.body.createdBy,
+  })
+
+  console.log("created new text")
+
+  newText.save()
+  .then(
+      newUser => {
+          console.log("saved new text")
+          return res.json(newText)
+      }
+  ).catch(function(error){
+      console.log(error);
+      console.log("failed to save text: " + error)
+  });
 })
 
 

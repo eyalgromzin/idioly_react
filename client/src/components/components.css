@@ -19,7 +19,11 @@
 
 .wordWord{
     font-size: 20px;
-    cursor: pointer;
+    cursor: pointer;    
+}
+
+.wordWord:hover{
+    background-color: antiquewhite;
 }
 
 .wordPlusImage{

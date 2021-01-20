@@ -108,11 +108,11 @@ export default function TranslatableWord (props){
         }
     }
 
-    return <div class="textWord" onClick={() => { translateClickedWord() }}>
-        <div class="wordTranslation" onClick={() => addWordToDB(props.word, translation)}>
-            <span class="wordTranslation2">{translation} </span><span class="invisible">a</span>
+    return <div className="textWord" onClick={() => { translateClickedWord() }}>
+        <div className="wordTranslation" onClick={() => addWordToDB(props.word, translation)}>
+            <span className="wordTranslation2">{translation} </span><span className="invisible">a</span>
             {isTranslated? <img src={wordImageSrc} className="wordPlusImage" onClick={() => addWordToDB(props.word)} /> : ""}            
         </div>
-        <div class="wordWord"><span>{props.word}&nbsp;</span></div>
+        <div className="wordWord"><span>{props.word}&nbsp;</span></div>
     </div>
 }
