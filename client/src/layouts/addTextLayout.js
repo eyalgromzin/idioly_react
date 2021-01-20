@@ -25,29 +25,52 @@ export default function(props){
     
     const userID = useSelector(state => state.commonReducer.loggedInUserID)
     
-    function onCreateButtonClick(e){
-        let wordCount = content.split(/[\s,\n]+/).length
-        getHtmlFromUrl(sourceUrl, function (response) {
-            // console.log("response.json(): " + response.json());
-            response.body.getReader().read().then(({ done, value }) => {
-                var htmlText = new TextDecoder("utf-8").decode(value)
-                
-                if(isTextExistsInText(content, htmlText)){
-                    addTextToDB(language, title, author, level, type, sourceUrl, youtubeUrl, content, wordCount, userID, addedItem => {
-                        alert("text added: " + addedItem)
-                    }, error => {
-                        alert("failed to add item: " + error)
-                    })            
-                }
-            })
+    function clearAllFields(){
+        setTitle("")
+        setContent("")
+        setAuthor("")
+        setSourceUrl("")
+        setYoutubeUrl("")
+    }
+
+    function validateFields(){
+        if(userID != "" && title != "" && content != "" && author != "" && sourceUrl != "" && level != "" && type != ""){
+            return true
+        }else{
+            let errorStr = "missing: "
+            if(userID == "")errorStr += "userID, "
+            if(title == "")errorStr += "title, "
+            if(content == "")errorStr += "content, "
+            if(author == "")errorStr += "author, "
+            if(sourceUrl == "")errorStr += "sourceUrl, "
+            if(level == "")errorStr += "level, "
+            if(type == "")errorStr += "type"
             
-            //works!!
-            // addTextToDB(language, title, author, level, type, sourceUrl, youtubeUrl, content, wordCount, userID, addedItem => {
-            //     alert("text added: " + addedItem)
-            // }, error => {
-            //     alert("failed to add item: " + error)
-            // })            
-        })        
+            alert(errorStr)
+            
+            return false
+        }
+    }
+
+    function onCreateButtonClick(e){
+        if(validateFields()){
+            let wordCount = content.split(/[\s,\n]+/).length
+            getHtmlFromUrl(sourceUrl, function (response) {
+                // console.log("response.json(): " + response.json());
+                response.body.getReader().read().then(({ done, value }) => {
+                    var htmlText = new TextDecoder("utf-8").decode(value)
+                    
+                    if(isTextExistsInText(content, htmlText)){
+                        addTextToDB(language, title, author, level, type, sourceUrl, youtubeUrl, content, wordCount, userID, addedItem => {
+                            alert("text added!")
+                            clearAllFields()
+                        }, error => {
+                            alert("failed to add item: " + error)
+                        })            
+                    }
+                })
+            })    
+        }    
     }
 
     
@@ -77,10 +100,11 @@ export default function(props){
                 error={isTitleEmpty}
                 helperText={isTitleEmpty ? 'Empty!' : ' '}
                 onBlur={e => setIsTitleEmpty(e.target.value == "")}
+                value={title}
                 />
-            <TextField id="addTextAuthor" label="Author" onChange={e => setAuthor(e.target.value)} />
-            <TextField id="addTextSourceUrl" label="Source Url" onChange={e => setSourceUrl(e.target.value)} />
-            <TextField id="addTextYoutubeUrl" label="Youtube Url" onChange={e => setYoutubeUrl(e.target.value)} />
+            <TextField id="addTextAuthor" label="Author" value={author} onChange={e => setAuthor(e.target.value)} />
+            <TextField id="addTextSourceUrl" label="Source Url" value={sourceUrl} onChange={e => setSourceUrl(e.target.value)} />
+            <TextField id="addTextYoutubeUrl" label="Youtube Url" value={youtubeUrl} onChange={e => setYoutubeUrl(e.target.value)} />
             <div id="addTextLevelAndType">
                 <FormControl id="addTextLevelContainer">
                     <Select
@@ -113,7 +137,10 @@ export default function(props){
             </div>            
             
             <FormControl id="addTextContentContainer">
-                <TextField id="addTextContent" onChange={e => setContent(e.target.value)} rows={10} variant="outlined" multiline={true} label="Paste text here..." />
+                <TextField id="addTextContent" value={content} 
+                    onChange={e => setContent(e.target.value)} rows={10} variant="outlined" 
+                    multiline={true} label="Paste text here..." 
+                    />
             </FormControl>   
 
             <FormControl id="addTextButtonContainer">

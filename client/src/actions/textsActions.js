@@ -78,8 +78,10 @@ export function addTextToDB(language, title, author, level, type, source, youtub
             'Content-Type': 'application/json'
           },
     }).then(function(response) {
+        console.log("added text to db")
         onSuccess(response)
     }).catch(function(error) {
-        alert(error);
+        console.log("fialed to add text to db")
+        onFail(error);
     });
 }

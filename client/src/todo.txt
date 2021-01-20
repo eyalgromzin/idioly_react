@@ -22,14 +22,60 @@
 
 
 
-
 - practice 
     - multiple choice. 
         - 1 translation , many words
         - 1 word , many translations
     - missing letters also
+- make texts show only the learning language texts and not all texts from all languages. 
 
-texts - split text by " ", "\n", and more...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- on add text , check that such title doesnt exist already. after trim and so on... 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
