@@ -13,8 +13,8 @@ export default function(props){
     // const wordDialogRef = useRef();
     const wordDialogRef = React.createRef();
 
-    useEffect(() => {
-        setTextWords(location.state.readingText.text.split(" "))
+    useEffect(() => {                
+        setTextWords(location.state.readingText.text.split(/[\s\n]/))
     }, [])
 
     const addWordDialogButtonClicked = (word, translation) => {

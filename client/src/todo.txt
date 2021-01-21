@@ -1,68 +1,7 @@
+- practice - missing letters
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- practice 
-    - multiple choice. 
-        - 1 translation , many words
-        - 1 word , many translations
-    - missing letters also
-- make texts show only the learning language texts and not all texts from all languages. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- on add text , check that such title doesnt exist already. after trim and so on... 
 
 
 
@@ -96,12 +35,15 @@
 
 - make everything super pretty
 
+- make texts show only the learning language texts and not all texts from all languages. 
+
+- on add text , check that such title doesnt exist already. after trim and so on... 
+
+- make google check is logged in somehow. so the user wont have to login all the time.
+
 - bookmarks
     - create user bookmarks to db
     - save bookmark to db on word click
     - load bookmark from db on text click. and show bookmark and scroll to word.
 
-
-- try to work with react-context instead of redux for a while - see how it goes. 
-
-
+- my words 

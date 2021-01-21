@@ -25,7 +25,22 @@ const UserWordSchema = new Schema({
     sentence: {
         type: String,
         required: false,
-      }   
+      },
+    multipleTranslationsCorrectAnswers: {
+        type: Number,
+        required: false,
+        default: 0,
+    },
+    multipleWordsCorrectAnswers: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+    missingLettersCorrectAnswers: {
+      type: Number,
+      required: false,
+      default: 0,
+    }
 });
 
 module.exports = UserWord = mongoose.model('userWord', UserWordSchema, "userWords");

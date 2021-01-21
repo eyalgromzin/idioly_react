@@ -36,3 +36,20 @@
 .invisible{
     visibility: hidden;
 }
+
+#multipleTranslationsWord{
+    font-weight: bold;
+}
+
+.multipleTranslationsAnswer:hover{
+    background-color: antiquewhite;
+    cursor: default;
+}
+
+#multipleTranslationsQuestionContainer{
+    text-align: center;
+}
+
+#multipleTranslationsExplanation{
+    text-align: left;
+}

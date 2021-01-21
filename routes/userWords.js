@@ -16,7 +16,7 @@ router.get('/getuserwords/:userID', (req, res) => {
     })
 })
 
-// @route   POST texts/:language/:level/:type
+// @route   POST userWords/addUserWord
 // @desc    search with more
 router.post('/adduserword', (req, res) => {
     console.log("in addUserWord")
@@ -44,5 +44,39 @@ router.post('/adduserword', (req, res) => {
         console.log("failed to save word: " + error)
     });
 })
+
+// @route   POST userWords/addUserWord
+// @desc    search with more
+router.post('/add1tocorrectanswer', (req, res) => {
+    console.log("in add1tocorrectanswer")
+    
+    var fieldName = req.body.fieldName
+
+    var incrementObject = {}
+    incrementObject[fieldName] = 1
+    var obj = {$inc: incrementObject}
+
+    UserWord.findByIdAndUpdate(req.body.id, obj)
+    .then(() => {
+        console.log("added 1 to " + fieldName)
+        res.send("success")
+    }).catch(function(error){
+        console.log(error);
+        console.log("failed to update correct answers: " + error)        
+    });
+})
+
+// @route   GET userWords/deleteUserWord
+// @desc    search with more
+router.get('/deleteUserWord/:wordID', (req, res) => {
+    console.log(`in   userWords/getUserWords/${req.params.wordID}`)  
+  
+    var query = {_id: req.params.wordID}
+  
+    UserWord.deleteOne(query).then(() => { 
+      res.send("")
+    })
+})
+
 
 module.exports = router;

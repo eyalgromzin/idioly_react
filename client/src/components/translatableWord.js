@@ -5,7 +5,8 @@ import {getTodaysDateString, MAX_TRANSLATIONS_TILL_LOGIN, isLoggedIn} from 'comm
 import {trimLeft, trimRight} from 'common'
 import {showLogInScreen} from 'actions/commonActions'
 import { useSelector } from 'react-redux'
-import {addUserWordToDB} from 'actions/userWordsActions'
+import {addUserWordToDB, addWordToUserWords} from 'actions/userWordsActions'
+
 
 export default function TranslatableWord (props){
     const TRANSLATED_WORDS_COUNT_TODAY_KEY = "TRANSLATED_WORDS_COUNT_TODAY_KEY"
@@ -97,6 +98,7 @@ export default function TranslatableWord (props){
                 addUserWordToDB(userID, fromLanguage, toLanguage, word, translation, '', res => {
                     console.log('got result from add user word: ' + res)
                     setWordImageSrc(require('images/check_mark_black.png').default)
+                    addWordToUserWords(res)
                 }, error => {
                     console.log('failed to add user word to db: ' + error)
                 })
@@ -110,7 +112,7 @@ export default function TranslatableWord (props){
 
     return <div className="textWord" onClick={() => { translateClickedWord() }}>
         <div className="wordTranslation" onClick={() => addWordToDB(props.word, translation)}>
-            <span className="wordTranslation2">{translation} </span><span className="invisible">a</span>
+            <span className="wordTranslation2">{translation}</span>
             {isTranslated? <img src={wordImageSrc} className="wordPlusImage" onClick={() => addWordToDB(props.word)} /> : ""}            
         </div>
         <div className="wordWord"><span>{props.word}&nbsp;</span></div>

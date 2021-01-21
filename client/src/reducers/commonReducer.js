@@ -6,6 +6,7 @@ import {
     SET_LOGGED_IN_USER_EMAIL,
     CHANGE_LOGGED_IN_TYPE,
     SET_LOGGED_IN_USER_WORDS,
+    ADD_USER_WORD,
    } from 'reducers/types'
   
   const initialState = {
@@ -59,7 +60,12 @@ import {
 			return {
 				...state,
 				loggedInWith: action.payload
-			};
+            };
+        case ADD_USER_WORD:
+            return {
+				...state,
+				userWords: [...state.userWords, action.payload]
+            };
       default:
         return state;
     }
