@@ -30,9 +30,9 @@ export default function(props){
             }
 
             if(questionType == 0){
-                return <MultipleWordsQuestion loadNextQuestion={loadNextQuestion} questionWord={questionWord} />
+                return <MissingLettersQuestion loadNextQuestion={loadNextQuestion} questionWord={questionWord} />
             }else if(questionType == 1){
-                return <MultipleWordsQuestion loadNextQuestion={loadNextQuestion} questionWord={questionWord} />
+                return <MissingLettersQuestion loadNextQuestion={loadNextQuestion} questionWord={questionWord} />
             }else if(questionType == 2){
                 return <MissingLettersQuestion loadNextQuestion={loadNextQuestion} questionWord={questionWord} />
             }
