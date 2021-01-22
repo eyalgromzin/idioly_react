@@ -13,19 +13,14 @@ export default function(props){
 
     const asnwerClicked = function(answer){
         if(answer == word.translation){
-            add1ToWordCorrectAnswers(word._id, "multipleTranslationsCorrectAnswers", () => {
-                props.loadNextQuestion()
-            }, () => {
-                alert('failed to update word, click again')
-            })
+            props.onSuccess()
         }
     }
 
     var word = userWords[Math.floor(Math.random() * userWords.length)];
 
     if(word.multipleTranslationsCorrectAnswers >= MAX_NUM_OF_CORRECT_ANSWERS){
-        console.log("question correct answers exceeded max, loading next question")
-        props.loadNextQuestion()        
+        props.onFail()        
     }
 
     var translations = [word.translation]    

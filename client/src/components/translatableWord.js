@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { translateWord } from 'translateActions'
 import './components.css'
 import {getTodaysDateString, MAX_TRANSLATIONS_TILL_LOGIN, isLoggedIn} from 'common'
-import {trimLeft, trimRight} from 'common'
 import {showLogInScreen} from 'actions/commonActions'
 import { useSelector } from 'react-redux'
 import {addUserWordToDB, addWordToUserWords} from 'actions/userWordsActions'
-
+import {trimWord} from 'common'
 
 export default function TranslatableWord (props){
+    var trimmedWord = props.word
+    trimmedWord = trimWord(trimmedWord)
+
     const TRANSLATED_WORDS_COUNT_TODAY_KEY = "TRANSLATED_WORDS_COUNT_TODAY_KEY"
 
     const [isTranslated, setIsTranslated] = useState(false)
@@ -25,16 +27,18 @@ export default function TranslatableWord (props){
     const userWords = useSelector(state => state.commonReducer.userWords)
 
     var translateClickedWord = () => {
+        
+        
         var numOfTranslatedWordsToday = getTodaysNumOfTranslatedWordFromLocalStorage()
         if(isLoggedIn || numOfTranslatedWordsToday < MAX_TRANSLATIONS_TILL_LOGIN){
             if(isLoggedIn){
-                const translatedWord = userWords.find(word => word.word == props.word)
+                const translatedWord = userWords.find(userWord => userWord.word == trimmedWord)
                 if(typeof translatedWord !== 'undefined'){
                     setIsTranslated(true)
                     setTranslation(translatedWord.translation)
                     increaseNumOfTranslatedWordsToday()
                 }else{
-                    translateWord(props.word, fromLanguage, toLanguage, (translation) => {
+                    translateWord(trimmedWord, fromLanguage, toLanguage, (translation) => {
                         if(!isTranslated){  
                             setIsTranslated(true)
                             setTranslation(translation)
@@ -45,7 +49,7 @@ export default function TranslatableWord (props){
                     })
                 }
             }else{
-                translateWord(props.word, fromLanguage, toLanguage, (translation) => {
+                translateWord(trimmedWord, fromLanguage, toLanguage, (translation) => {
                     if(!isTranslated){  
                         setIsTranslated(true)
                         setTranslation(translation)
@@ -91,10 +95,10 @@ export default function TranslatableWord (props){
         }
     }
 
-    var addWordToDB = (word, translation) => {
+    var addWordToDB = (word, translation) => {        
         if(isLoggedIn){
-            const translatedWord = userWords.find(word => word.word == props.word)
-            if(typeof translatedWord === 'undefined'){
+            const userWord = userWords.find(userWord => userWord.word == trimmedWord)
+            if(typeof userWord === 'undefined'){
                 addUserWordToDB(userID, fromLanguage, toLanguage, word, translation, '', res => {
                     console.log('got result from add user word: ' + res)
                     setWordImageSrc(require('images/check_mark_black.png').default)
@@ -111,9 +115,9 @@ export default function TranslatableWord (props){
     }
 
     return <div className="textWord" onClick={() => { translateClickedWord() }}>
-        <div className="wordTranslation" onClick={() => addWordToDB(props.word, translation)}>
+        <div className="wordTranslation" onClick={() => addWordToDB(trimmedWord, translation)}>
             <span className="wordTranslation2">{translation}</span>
-            {isTranslated? <img src={wordImageSrc} className="wordPlusImage" onClick={() => addWordToDB(props.word)} /> : ""}            
+            {isTranslated? <img src={wordImageSrc} className="wordPlusImage" /> : ""}            
         </div>
         <div className="wordWord"><span>{props.word}&nbsp;</span></div>
     </div>

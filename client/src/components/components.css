@@ -53,3 +53,7 @@
 #multipleTranslationsExplanation{
     text-align: left;
 }
+
+.oneLetterInput{
+    width: 10px;
+}

@@ -14,7 +14,7 @@ export default function(props){
     const wordDialogRef = React.createRef();
 
     useEffect(() => {                
-        setTextWords(location.state.readingText.text.split(/[\s\n]/))
+        setTextWords(location.state.readingText.text.split(/[\s]/))
     }, [])
 
     const addWordDialogButtonClicked = (word, translation) => {
@@ -27,6 +27,6 @@ export default function(props){
         {
             textWords.map( word => <TranslatableWord word={word} /> )
         }
-        <WordDialog ref={wordDialogRef} buttonClicked={(word, translation) => addWordDialogButtonClicked(word, translation)} />
+        {/* <WordDialog ref={wordDialogRef} buttonClicked={(word, translation) => addWordDialogButtonClicked(word, translation)} /> */}
     </div>
 }

@@ -46,6 +46,15 @@ export const trimLeft = function(str, charlist) {
     return str.replace(new RegExp("^[" + charlist + "]+"), "");
   };    
 
+export function trimWord(word){
+  let charsToTrim = "\.,\?¿\n\!\:"
+  let afterTrim = trimRight(word, charsToTrim)
+  afterTrim = trimLeft(afterTrim, charsToTrim)
+  let x = 3
+  x += 3
+  return afterTrim
+}
+
 
 export const isTextExistsInText = (text, largerText) => {
   var textWords = text.split(/[\s\t,\n"'\(\)\-\!\?]+/)

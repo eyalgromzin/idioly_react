@@ -9,12 +9,7 @@ export default function(props){
 
     const asnwerClicked = function(answer){
         if(answer == props.questionWord.word){
-            add1ToWordCorrectAnswers(props.questionWord._id, "multipleWordsCorrectAnswers", () => {
-                alert("correct answer")
-                props.loadNextQuestion()
-            }, () => {
-                alert('failed to update word, click again')
-            })
+            props.onSuccess()
         }else{
             alert('wrong answer!')
         }

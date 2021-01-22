@@ -31,7 +31,7 @@ router.post('/adduserword', (req, res) => {
         sentence: req.body.sentence
     })
 
-    console.log("created new user word: " + newWord)
+    console.log("created new user word")
 
     newWord.save()
     .then(
