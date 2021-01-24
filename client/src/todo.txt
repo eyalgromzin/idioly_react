@@ -1,46 +1,51 @@
-on correct answer - show toast - react-toastify
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 - make everything super pretty
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - make texts show only the learning language texts and not all texts from all languages. 
 
-- on add text , check that such title doesnt exist already. after trim and so on... 
+- make google check is logged in somehow, so i wont have to always click login
 
-- make google check is logged in somehow. so the user wont have to login all the time.
+- on add text , check that such title doesnt exist already. after trim and so on... 
 
 - bookmarks
     - create user bookmarks to db

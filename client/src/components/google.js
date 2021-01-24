@@ -26,9 +26,9 @@ class GoogleButton extends Component {
         this.props.dispatch({type: CHANGE_LOGGED_IN_TYPE, payload: "Google"});
         this.props.dispatch({ type: CHANGE_LOGGED_IN_STATE, payload: true });
         this.props.dispatch({ type: SET_LOGGED_IN_USER_ID, payload: response.googleId });
-        this.props.dispatch({ type: SET_LOGGED_IN_USER_FIRST_NAME, payload: response.Nt.EW });
-        this.props.dispatch({ type: SET_LOGGED_IN_USER_LAST_NAME, payload: response.Nt.IU });
-        this.props.dispatch({ type: SET_LOGGED_IN_USER_EMAIL, payload: response.Nt.uu });
+        // this.props.dispatch({ type: SET_LOGGED_IN_USER_FIRST_NAME, payload: response.Nt.EW });
+        // this.props.dispatch({ type: SET_LOGGED_IN_USER_LAST_NAME, payload: response.Nt.IU });
+        // this.props.dispatch({ type: SET_LOGGED_IN_USER_EMAIL, payload: response.Nt.uu });
 
         if(this.props.pageAfterLogin !== undefined && this.props.pageAfterLogin != ''){
             this.context.history.push("/" + this.props.pageAfterLogin)            

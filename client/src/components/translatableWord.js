@@ -27,8 +27,6 @@ export default function TranslatableWord (props){
     const userWords = useSelector(state => state.commonReducer.userWords)
 
     var translateClickedWord = () => {
-        
-        
         var numOfTranslatedWordsToday = getTodaysNumOfTranslatedWordFromLocalStorage()
         if(isLoggedIn || numOfTranslatedWordsToday < MAX_TRANSLATIONS_TILL_LOGIN){
             if(isLoggedIn){

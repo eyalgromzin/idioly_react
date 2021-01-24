@@ -7,14 +7,20 @@ import MissingLettersQuestion from 'components/missingLettersQuestion';
 import {trimWord} from 'common'
 import { add1ToWordCorrectAnswers } from 'actions/practiceActions'
 import MultipleWordsQuestion from 'components/multipleWordsQuestion';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 export default function(props){
     let questionWord = {}
-    const userWords = useSelector(state => state.commonReducer.userWords)
+    const userWords = useSelector(state => {
+        return state.commonReducer.userWords
+    })
     const isLoggedIn = useSelector(state => { 
         return state.commonReducer.loggedInWith != "NONE"
     })
     const [toggle, setToggle] = useState(false)
+    const [isShowToast, setIsShowToast] = useState(false);
+
     let questionNumber = 0
     let questionType = 0
 
@@ -22,11 +28,7 @@ export default function(props){
         setToggle(!toggle)
     }
 
-    var showToast = (text) => {
-        //show toast here
-    }
-
-    var onSuccess = () => {
+    var onCorrectAnswer = () => {
         let fieldName = ""
         if(questionType == 0){
             fieldName = "multipleTranslationsCorrectAnswers"        
@@ -36,7 +38,7 @@ export default function(props){
             fieldName = "missingLettersCorrectAnswers"       
         }
         add1ToWordCorrectAnswers(questionWord._id, fieldName, () => {
-            showToast("Correct!!")
+            toast.success("Success!!");
             loadNextQuestion()
         }, () => {
             alert('failed to update word, loading next question')
@@ -63,19 +65,32 @@ export default function(props){
 
             questionWord.word = trimWord(questionWord.word) //doesnt work
 
+            var question = <div></div>
+
             if(questionType == 0){
-                return <MultipleTranslationsQuestion loadNextQuestion={loadNextQuestion} questionWord={questionWord}
-                onSuccess={() => onSuccess()} onFail={() => onFailed(questionWord.word, questionWord.translation)}
-                />
-            }else if(questionType == 1){
-                return <MultipleWordsQuestion questionNumber={questionNumber} loadNextQuestion={loadNextQuestion} questionWord={questionWord} 
-                onSuccess={() => onSuccess()} onFail={() => onFailed(questionWord.word, questionWord.translation)}
-                />
-            }else if(questionType == 2){
-                return <MissingLettersQuestion questionNumber={questionNumber} loadNextQuestion={loadNextQuestion} questionWord={questionWord} 
-                    onSuccess={() => onSuccess()} onFail={() => onFailed(questionWord.word, questionWord.translation)}
+                question = ( <div>
+                    <MultipleTranslationsQuestion loadNextQuestion={loadNextQuestion} questionWord={questionWord} 
+                    onSuccess={() => onCorrectAnswer()} onFail={() => onFailed(questionWord.word, questionWord.translation)}
                     />
+                </div>)
+            }else if(questionType == 1){
+                question = (<div>
+                        <MultipleWordsQuestion questionNumber={questionNumber} loadNextQuestion={loadNextQuestion} questionWord={questionWord} 
+                        onSuccess={() => onCorrectAnswer()} onFail={() => onFailed(questionWord.word, questionWord.translation)}
+                        />
+                    </div>)
+            }else if(questionType == 2){
+                question = (<div>
+                    <MissingLettersQuestion questionNumber={questionNumber} loadNextQuestion={loadNextQuestion} questionWord={questionWord} 
+                    onSuccess={() => onCorrectAnswer()} onFail={() => onFailed(questionWord.word, questionWord.translation)}
+                    />
+                </div>)
             }
+            return <div>
+                <ToastContainer position="top-center"  autoClose={1000} />
+
+                {question}                
+            </div>
         }else{
             return <div>not enough words for practice, plz add more </div>
         }
