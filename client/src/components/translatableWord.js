@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { translateWord } from 'translateActions'
 import './components.css'
 import {getTodaysDateString, MAX_TRANSLATIONS_TILL_LOGIN, isLoggedIn} from 'common'
@@ -6,6 +6,8 @@ import {showLogInScreen} from 'actions/commonActions'
 import { useSelector } from 'react-redux'
 import {addUserWordToDB, addWordToUserWords} from 'actions/userWordsActions'
 import {trimWord} from 'common'
+
+let x  = 5
 
 export default function TranslatableWord (props){
     var trimmedWord = props.word
@@ -18,6 +20,8 @@ export default function TranslatableWord (props){
     const [wordImageSrc, setWordImageSrc] = useState(require('images/plus.png').default)
 
     const isLoggedIn = useSelector(state => { 
+        x  = 3
+
         return state.commonReducer.loggedInWith != "NONE"
     })
 
@@ -112,8 +116,11 @@ export default function TranslatableWord (props){
         }
     }
 
+    var createdWordMethods = 0
+
     return <div className="textWord" onClick={() => { translateClickedWord() }}>
-        <div className="wordTranslation" onClick={() => addWordToDB(trimmedWord, translation)}>
+        <div className="wordTranslation" 
+            onClick={() => addWordToDB(trimmedWord, translation) }>
             <span className="wordTranslation2">{translation}</span>
             {isTranslated? <img src={wordImageSrc} className="wordPlusImage" /> : ""}            
         </div>

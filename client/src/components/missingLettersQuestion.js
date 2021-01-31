@@ -107,7 +107,7 @@ export default function(props){
             { 
                 word.split("").map((letter, index) => missingLettersIndexes.indexOf(index) != -1? 
                     <MissingLetter letter={letter} 
-                        key={letter+word+index + props.questionNumber}
+                        key={++letterRefIndex + letter+word+index + props.questionNumber}
                         onCorrectLetter={() => onCorrectLetter(index)}  
                         onWrongLetter={() => onWrongLetter(index)}
                         isSetFocus={index == missingLettersIndexes[0]? true: false}

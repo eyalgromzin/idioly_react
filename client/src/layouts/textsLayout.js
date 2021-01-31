@@ -86,7 +86,7 @@ export default function(props){
         </div>
         <div id="textsList">
         {           
-            readingTexts.map(readingText => <div key={readingText.title} onClick={() => openText(readingText)}> {readingText.title}  </div>)
+            readingTexts.map(readingText => <div class="textListItem" key={readingText.title} onClick={() => openText(readingText)}> {readingText.title}  </div>)
         }
         </div>
     </div>

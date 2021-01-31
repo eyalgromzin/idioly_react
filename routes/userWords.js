@@ -35,9 +35,9 @@ router.post('/adduserword', (req, res) => {
 
     newWord.save()
     .then(
-        newUser => {
+        newWord => {
             console.log("saved new word")
-            return res.json(newUser)
+            res.json(newWord)
         }
     ).catch(function(error){
         console.log(error);

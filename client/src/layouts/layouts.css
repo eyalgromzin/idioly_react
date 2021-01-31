@@ -1,6 +1,33 @@
 
 #topBar{
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    border-bottom: solid;
+    border-bottom-width: 0.5px;
+    border-bottom-color: #e4e4e4;
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#topBarButtons{
+    display: inline-block;
+    flex: 1;
+}
+
+.topBarButtonContainer{
+    margin-right: 10px;
+    display: inline-block;
+    font-size: 25px;
+}
+
+#topBarLogo{
+    display: inline-block;
+    flex: 1;
+}
+
+#topBarRightPlaceholder{
+    flex: 1;
 }
 
 #topBarLogoImage{
@@ -10,7 +37,8 @@
 
 #topBarIdioly{
     vertical-align: top;
-    font-size: 27px;
+    font-size: 25px;
+    font-family: cursive;
 }
 
 .topBarButton{
@@ -77,4 +105,8 @@
 
 #addTextButtonContainer{
     margin-top: 5px; 
+}
+
+.textListItem:hover{
+    background-color: antiquewhite;
 }

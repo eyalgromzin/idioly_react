@@ -1,6 +1,12 @@
 
+- make first page with login / choose native + learning language
 
-- make everything super pretty
+- make everything super pretty with material ui
+    - main page layout
+    - texts layout 
+    - text layout 
+
+
 
 
 

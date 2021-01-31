@@ -65,9 +65,7 @@ export const loadOrCreateUserIfNotExists = user => dispatch => {
             type: SET_LOGGED_IN_USER_EMAIL,
             payload: res.data[0].email
           })
-          dispatch({ type: CHANGE_LOGGED_IN_STATE, payload: true });
-
-          dispatch(getUserFromDB(user.id))
+          dispatch({ type: CHANGE_LOGGED_IN_STATE, payload: true });          
     }
   }).then(res => {
 
@@ -92,16 +90,6 @@ export const createUser = user => dispatch => {
   );
 }
 
-// //'Liked' / 'Created' 
-export const getUserFromDB = userID => dispatch => {
-  console.log('sending post:  api/user/getUser/, userID: ' + userID)
-  axios.post(`/api/user/getUser`,{userID})
-  .then(res =>
-    {
-      console.log('got response from: /api/user/getUser');
-    }
-  );
-}
 
 export const changeLoggedInWithType = (newType) => {
   store.dispatch({

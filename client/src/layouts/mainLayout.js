@@ -19,21 +19,23 @@ export default function MainLayout(){
     })
 
     return <div id="mainLayout">        
-            { isShowLogin? <LoginScreen /> : ""}
-            {/* <LoginScreen /> */}
+            { isShowLogin? <LoginScreen /> : ""}            
 
             <Router>
                 <div id="topBar">
-                    <img id="topBarLogoImage" src={require("images/logo.png").default} /> 
-                    <span id="topBarIdioly">Idioly</span>
+                    <div id="topBarLogo">
+                        <img id="topBarLogoImage" src={require("images/logo.png").default} /> 
+                        <span id="topBarIdioly">Idioly</span>
+                    </div>
+
+                    <div id="topBarButtons">     
+                        <div class="topBarButtonContainer"><Link to="/texts"><div className="topBarButton">texts </div></Link></div>
+                        <div class="topBarButtonContainer"><Link to="/practice"><div className="topBarButton">practice </div></Link></div>
+                    </div>
+
+                    <div id="topBarRightPlaceholder"></div>
                     
                 </div>
-                <div id="buttons_layout">     
-                    <li className="topBarButton"><Link to="/texts">texts </Link></li>
-                    <li className="topBarButton"><Link to="/practice">practice </Link></li>
-                    {/* <li className="topBarButton"><Link to="/words">words</Link></li> */}
-                </div>
-                <br />
                 
                 <div id="mainContentContainer">
                     <Switch>

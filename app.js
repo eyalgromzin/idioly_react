@@ -14,7 +14,6 @@ app.use(cors())
 // var logger = require('morgan');
 
 const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
 
 //mongoose api
 var usersRouter = require('./routes/users');
@@ -42,7 +41,6 @@ mongoose
 // app.use(logger('dev'));
 // app.use(express.json());
 
-// app.use(bodyParser.json());
 // app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));

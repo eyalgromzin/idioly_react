@@ -17,16 +17,9 @@ export default function(props){
         setTextWords(location.state.readingText.text.split(/[\s]/))
     }, [])
 
-    const addWordDialogButtonClicked = (word, translation) => {
-        alert(word + " " + translation)
-    }
-
-    
-
     return <div id="textContent">        
         {
             textWords.map( word => <TranslatableWord word={word} /> )
         }
-        {/* <WordDialog ref={wordDialogRef} buttonClicked={(word, translation) => addWordDialogButtonClicked(word, translation)} /> */}
     </div>
 }
